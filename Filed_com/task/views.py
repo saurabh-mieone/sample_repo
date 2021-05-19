@@ -22,6 +22,8 @@ def router(request, audioFileType, audio_ID=None):
 
 # Create your views here.
 def create(request):
+    if request.method == "GET":
+        return HttpResponse("Basic GET HTTP method")
     recv_json = json.loads(request.body)
     filetype = recv_json["audioFileType"]
     metadata = recv_json["audioFileMetadata"]
